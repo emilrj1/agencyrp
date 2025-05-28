@@ -26,21 +26,20 @@
       font-family: 'Inter', sans-serif;
     }
     body, div, section, p, h1, h2, ul, li {
-  caret-color: transparent;
-}
+      caret-color: transparent;
+    }
 
-    /* Shine effekt på teksten */
+    /* Shine effekt på teksten (blå) */
     .shine-text {
       position: relative;
       display: inline-block;
-      color: white;
       font-weight: 700;
-      font-size: 3rem; /* 4xl */
+      font-size: 3rem;
       line-height: 1.3;
       background: linear-gradient(
         90deg,
         #ffffff,
-        #ff69b4,
+        #3b82f6,
         #ffffff
       );
       background-size: 200% 100%;
@@ -49,21 +48,14 @@
       -webkit-text-fill-color: transparent;
       animation: shine 3s linear infinite;
     }
+
     @keyframes shine {
-      0% {
-        background-position: 200% 0;
-      }
-      100% {
-        background-position: -200% 0;
-      }
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
-    /* For at undgå at descenders som 'g' bliver klippet */
     .hero-container {
-      padding-top: 2rem; /* Løfter teksten lidt op */
-      padding-bottom: 2.5rem;
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
+      padding: 2rem 2.5rem;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 0.5rem;
       user-select: none;
@@ -71,7 +63,7 @@
       max-width: 600px;
       margin: 0 1rem;
     }
-    /* Tillad klik på knap igen */
+
     .hero-container a {
       pointer-events: auto;
     }
@@ -85,9 +77,9 @@
       <h1 class="text-2xl font-bold text-white">Agency RP</h1>
     </div>
     <nav class="space-x-6">
-      <a href="https://discord.gg/BxpXKQAZ" target="_blank" class="hover:text-pink-500">Discord</a>
-      <a href="info.html" class="hover:text-pink-500">Informationer</a>
-      <a href="donation.html" class="hover:text-pink-500">Donationspakker</a>
+      <a href="https://discord.gg/BxpXKQAZ" target="_blank" class="hover:text-blue-400">Discord</a>
+      <a href="info.html" class="hover:text-blue-400">Informationer</a>
+      <a href="donation.html" class="hover:text-blue-400">Donationspakker</a>
     </nav>
   </header>
 
@@ -101,9 +93,8 @@
       <p class="text-lg md:text-xl mb-6" id="playerCount">Henter spillere...</p>
       <a
         href="https://cfx.re/join/6ok36j"
-        class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full font-semibold transition"
-        >Join serveren</a
-      >
+        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition"
+      >Join serveren</a>
     </div>
   </section>
 
