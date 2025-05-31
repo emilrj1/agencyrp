@@ -4,9 +4,97 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agency RP</title>
+  <title>Agency</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script defer>
+  <style>
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulseScale {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Skræddersyede animationer */
+    .animate-fadeInUp {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    .animate-pulseScale {
+      animation: pulseScale 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+  <!-- Genskabt gammel navbar -->
+  <header class="flex justify-between items-center px-6 py-4 border-b border-gray-800">
+    <div class="flex items-center space-x-3">
+      <img src="Logo.png" alt="Agency Logo" class="h-10 w-10 object-contain animate-pulseScale" />
+      <h1 class="text-2xl font-bold text-white">Agency</h1>
+    </div>
+    <nav class="space-x-6">
+      <a href="https://discord.gg/AgencyRP" target="_blank" class="hover:text-blue-400">Discord</a>
+      <a href="info.html" class="hover:text-blue-400">Informationer</a>
+      <a href="donation.html" class="hover:text-blue-400">Donationspakker</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative h-screen flex items-start justify-center text-center pt-32 overflow-hidden">
+    <!-- Baggrund med GIF og slør -->
+    <div
+      class="absolute inset-0 z-0 transform scale-105 filter blur-lg"
+      style="
+        background-image: url('Wp4w.gif');
+        background-size: cover;
+        background-position: center;
+      "
+    ></div>
+
+    <!-- Regn-laget -->
+    <div
+      class="absolute inset-0 z-10"
+      style="
+        background-image: url('rain.gif');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+        mix-blend-mode: screen;
+      "
+    ></div>
+
+    <!-- Sort overlay med gradient-effekt -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-20"></div>
+
+    <!-- Indhold uden baggrundsfarve -->
+    <div class="hero-container z-30 max-w-lg px-6 opacity-0 animate-fadeInUp" style="animation-delay: 0.5s;">
+      <h2 class="shine-text mb-4 text-4xl md:text-6xl">Velkommen til Agency</h2>
+      <p class="text-lg md:text-xl mb-6" id="playerCount">Henter spillere...</p>
+      <a
+        href="https://cfx.re/join/6ok36j"
+        class="inline-block bg-blue-900/90 hover:bg-blue-800 text-gray-200 px-8 py-3 rounded-full font-semibold transition-colors duration-300"
+      >Join serveren</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 border-t border-gray-800 mt-auto opacity-0 animate-fadeInUp" style="animation-delay: 0.8s;">
+    <p class="text-gray-500">&copy; 2025 Agency. Alle rettigheder forbeholdes.</p>
+  </footer>
+
+  <script>
     async function fetchPlayerData() {
       try {
         const infoRes = await fetch("https://servers-frontend.fivem.net/api/servers/single/6ok36j");
@@ -14,93 +102,11 @@
         const players = data.Data.clients;
         const maxPlayers = data.Data.sv_maxclients;
         document.getElementById("playerCount").textContent = `${players} / ${maxPlayers} spillere online`;
-      } catch (err) {
+      } catch {
         document.getElementById("playerCount").textContent = "Server offline";
       }
     }
     window.onload = fetchPlayerData;
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    body, div, section, p, h1, h2, ul, li {
-      caret-color: transparent;
-    }
-
-    /* Shine effekt på teksten (blå) */
-    .shine-text {
-      position: relative;
-      display: inline-block;
-      font-weight: 700;
-      font-size: 3rem;
-      line-height: 1.3;
-      background: linear-gradient(
-        90deg,
-        #ffffff,
-        #3b82f6,
-        #ffffff
-      );
-      background-size: 200% 100%;
-      background-repeat: no-repeat;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shine 3s linear infinite;
-    }
-
-    @keyframes shine {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    .hero-container {
-      padding: 2rem 2.5rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 0.5rem;
-      user-select: none;
-      pointer-events: none;
-      max-width: 600px;
-      margin: 0 1rem;
-    }
-
-    .hero-container a {
-      pointer-events: auto;
-    }
-  </style>
-</head>
-<body class="bg-black text-white">
-  <!-- Header -->
-  <header class="flex justify-between items-center px-6 py-4 border-b border-gray-800">
-    <div class="flex items-center space-x-3">
-      <img src="Logo.png" alt="Agency RP Logo" class="h-10 w-10 object-contain" />
-      <h1 class="text-2xl font-bold text-white">Agency RP</h1>
-    </div>
-    <nav class="space-x-6">
-      <a href="https://discord.gg/BxpXKQAZ" target="_blank" class="hover:text-blue-400">Discord</a>
-      <a href="info.html" class="hover:text-blue-400">Informationer</a>
-      <a href="donation.html" class="hover:text-blue-400">Donationspakker</a>
-    </nav>
-  </header>
-
-  <!-- Hero -->
-<section
-  class="h-screen flex items-start justify-center text-center bg-cover bg-center pt-24"
-  style="background-image: url('Wp4w.gif'); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed;"
->
-  <div class="hero-container">
-    <h2 class="shine-text mb-4">Velkommen til Agency RP</h2>
-    <p class="text-lg md:text-xl mb-6" id="playerCount">Henter spillere...</p>
-    <a
-      href="https://cfx.re/join/6ok36j"
-      class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition"
-    >Join serveren</a>
-  </div>
-</section>
-
-  <!-- Footer -->
-  <footer class="text-center py-6 border-t border-gray-800">
-    <p class="text-gray-500">&copy; 2025 Agency RP. Alle rettigheder forbeholdes.</p>
-  </footer>
 </body>
 </html>
