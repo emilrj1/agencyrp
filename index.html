@@ -52,18 +52,18 @@
     style="background-image: url('rain.gif'); background-size: cover; background-position: center; opacity: 0.5; mix-blend-mode: screen;"></div>
   <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-20"></div>
 
-  <!-- Donationsbar -->
-  <div class="z-30 absolute top-5 w-full flex justify-center px-4">
-    <div class="bg-gradient-to-r from-green-400/10 via-green-500/10 to-emerald-600/10 backdrop-blur-md border border-green-400/40 rounded-xl p-4 w-full max-w-md shadow-2xl animate-pulseScale">
-      <h2 class="text-white text-lg md:text-xl font-bold mb-2 text-center drop-shadow-md">Donations til Agency</h2>
-      <div class="w-full h-5 bg-white/10 rounded-full overflow-hidden shadow-inner border border-white/10">
-        <div id="donation-fill" class="h-full bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 text-xs font-bold text-black text-center transition-all duration-700 animate-[pulseFill_3s_ease-in-out_infinite]" style="width: 0%;">
-          0%
+    <!-- Donationsbar -->
+    <div class="z-30 fixed top-20 w-full flex justify-center px-4">
+      <div class="bg-gray-900 bg-opacity-70 border border-gray-700 rounded-lg p-4 w-full max-w-md shadow-md animate-pulseScale">
+        <h2 class="text-white text-lg md:text-xl font-bold mb-2 text-center drop-shadow-md">Donations til Agency</h2>
+        <div class="w-full h-5 bg-white/10 rounded-full overflow-hidden shadow-inner border border-white/10">
+          <div id="donation-fill" class="h-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-xs font-bold text-black text-center transition-all duration-700 animate-[pulseFill_3s_ease-in-out_infinite]" style="width: 0%;">
+            0%
+          </div>
         </div>
+        <p id="donation-text" class="text-center mt-1 text-gray-200 text-xs drop-shadow-sm">0 kr ud af 1000 kr</p>
       </div>
-      <p id="donation-text" class="text-center mt-1 text-gray-200 text-xs drop-shadow-sm">0 kr ud af 1000 kr</p>
     </div>
-  </div>
 
   <!-- Hero-indhold -->
   <div class="hero-container z-20 max-w-lg px-6 mt-5">
