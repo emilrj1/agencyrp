@@ -81,6 +81,13 @@
 
   <!-- JavaScript -->
   <script>
+  // Sørg for at intet element automatisk får fokus
+  window.onload = () => {
+    document.activeElement.blur();
+  };
+</script>
+
+  <script>
     // Hent spillere
     async function fetchPlayerData() {
       try {
