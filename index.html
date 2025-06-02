@@ -6,20 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agency</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes pulseScale {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-    }
+<style>
+  @keyframes pulseScale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
 
-    .animate-pulseScale {
-      animation: pulseScale 2s ease-in-out infinite;
-    }
-  </style>
+  .animate-pulseScale {
+    animation: pulseScale 2s ease-in-out infinite;
+  }
+
+  * {
+    user-select: none;
+    caret-color: transparent !important;
+  }
+</style>
+
 </head>
 <body class="bg-black text-white overflow-x-hidden">
 
@@ -42,18 +44,59 @@
   </header>
 
   <!-- Hero -->
-  <section class="relative h-screen flex items-start justify-center text-center pt-32 overflow-hidden">
-    <div class="absolute inset-0 z-0 transform scale-105 filter blur-lg"
-      style="background-image: url('Wp4w.gif'); background-size: cover; background-position: center;"></div>
-    <div class="absolute inset-0 z-10"
-      style="background-image: url('rain.gif'); background-size: cover; background-position: center; opacity: 0.5; mix-blend-mode: screen;"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-20"></div>
-    <div class="hero-container z-30 max-w-lg px-6">
-      <h2 class="mb-4 text-4xl md:text-6xl">Velkommen til Agency</h2>
-      <p class="text-lg md:text-xl mb-6" id="playerCount">Henter spillere...</p>
-      <a href="https://cfx.re/join/6ok36j" class="inline-block bg-blue-900/90 hover:bg-blue-800 text-gray-200 px-8 py-3 rounded-full font-semibold transition-colors duration-300">Join serveren</a>
+<section class="relative h-screen flex items-start justify-center text-center pt-32 overflow-hidden">
+  <!-- Baggrunde -->
+  <div class="absolute inset-0 z-0 transform scale-105 filter blur-lg"
+    style="background-image: url('Wp4w.gif'); background-size: cover; background-position: center;"></div>
+  <div class="absolute inset-0 z-10"
+    style="background-image: url('rain.gif'); background-size: cover; background-position: center; opacity: 0.5; mix-blend-mode: screen;"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-20"></div>
+
+  <!-- Donationsbar -->
+  <div class="z-30 absolute top-20 w-full flex justify-center px-4">
+    <div class="bg-gradient-to-r from-green-400/10 via-green-500/10 to-emerald-600/10 backdrop-blur-md border border-green-400/40 rounded-xl p-4 w-full max-w-md shadow-2xl animate-pulseScale">
+      <h2 class="text-white text-lg md:text-xl font-bold mb-2 text-center drop-shadow-md">Donations til Agency</h2>
+      <div class="w-full h-5 bg-white/10 rounded-full overflow-hidden shadow-inner border border-white/10">
+        <div id="donation-fill" class="h-full bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 text-xs font-bold text-black text-center transition-all duration-700 animate-[pulseFill_3s_ease-in-out_infinite]" style="width: 0%;">
+          0%
+        </div>
+      </div>
+      <p id="donation-text" class="text-center mt-1 text-gray-200 text-xs drop-shadow-sm">0 kr ud af 1000 kr</p>
     </div>
-  </section>
+  </div>
+
+  <!-- Hero-indhold -->
+  <div class="hero-container z-30 max-w-lg px-6 mt-20">
+    <h2 class="mb-4 text-4xl md:text-6xl">Velkommen til Agency</h2>
+    <p class="text-lg md:text-xl mb-6" id="playerCount">Henter spillere...</p>
+    <a href="https://cfx.re/join/6ok36j" class="inline-block bg-blue-900/90 hover:bg-blue-800 text-gray-200 px-8 py-3 rounded-full font-semibold transition-colors duration-300">Join serveren</a>
+  </div>
+</section>
+
+
+<style>
+  @keyframes pulseFill {
+    20%, 50% {
+      filter: brightness(1);
+    }
+    20% {
+      filter: brightness(1.4);
+    }
+  }
+</style>
+
+<script>
+  // Du kan evt. hente disse tal fra en backend, Google Sheet, eller API
+  const currentDonation = 212; // beløb doneret
+  const donationGoal = 750;   // mål
+  const percentage = Math.min((currentDonation / donationGoal) * 100, 100).toFixed(1);
+
+  // Opdater bar og tekst
+  document.getElementById('donation-fill').style.width = percentage + '%';
+  document.getElementById('donation-fill').textContent = percentage + '%';
+  document.getElementById('donation-text').textContent = `${currentDonation} kr ud af ${donationGoal} kr`;
+</script>
+
 
   <!-- Nyheder -->
   <div class="z-40 w-full px-4 md:px-0 md:w-80 md:absolute md:top-32 md:right-6 mt-10 md:mt-0">
