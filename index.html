@@ -37,20 +37,18 @@
 </head>
 <body class="bg-black text-white overflow-x-hidden">
 
-  <!-- Responsiv navbar -->
-  <header class="flex items-center justify-between px-6 py-4 border-b border-gray-800 relative">
+  <!-- Navbar -->
+  <header class="flex items-center justify-between px-6 py-4 border-b border-gray-800">
     <div class="flex items-center space-x-3">
       <img src="Logo.png" alt="Agency Logo" class="h-10 w-10 object-contain animate-pulseScale" />
       <h1 class="text-2xl font-bold text-white">Agency</h1>
     </div>
     <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M4 6h16M4 12h16M4 18h16" />
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
-    <nav id="menu" class="hidden absolute top-full left-0 w-full bg-black border-t border-gray-800 md:static md:flex md:items-center md:space-x-6 md:w-auto md:bg-transparent md:border-none">
+    <nav id="menu" class="hidden flex-col absolute top-16 left-0 w-full bg-black border-t border-gray-800 md:static md:flex md:flex-row md:items-center md:space-x-6 md:w-auto md:bg-transparent md:border-none">
       <a href="https://discord.gg/AgencyRP" target="_blank" class="block px-6 py-3 md:p-0 hover:text-blue-400">Discord</a>
       <a href="info.html" class="block px-6 py-3 md:p-0 hover:text-blue-400">Informationer</a>
       <a href="donation.html" class="block px-6 py-3 md:p-0 hover:text-blue-400">Donationspakker</a>
@@ -95,7 +93,7 @@
     <p class="text-gray-500">&copy; 2025 Agency. Alle rettigheder forbeholdes.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- JS -->
   <script>
     // Hent spillere
     async function fetchPlayerData() {
@@ -111,7 +109,7 @@
     }
     window.onload = fetchPlayerData;
 
-    // Toggle mobilmenu
+    // Mobilmenu toggle
     const toggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('menu');
     toggle.addEventListener('click', () => {
