@@ -2,7 +2,7 @@
 
 body {
 background-size: cover;
-background-image: url("img/background.png");
+background-image: url("background.png");
 overflow: hidden;
 }
 
@@ -308,7 +308,7 @@ cursor: pointer;
 @media (max-width: 1000px) {
 body {
     overflow-x: hidden;
-    background-image: url(img/bg_mobile.png);
+    background-image: url(bg_mobile.png);
 }
   #logo {
     position: absolute;
