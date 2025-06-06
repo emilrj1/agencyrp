@@ -158,27 +158,19 @@ left: 60%;
 }
 
 #serverinfo {
-position: absolute;
-top: 20%;
-font-family: 'Akrobat SemiBold', sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 1.3020833333333333vw;
-line-height: 1.5625vw;
-color: #FFFFFF;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: white;
+  text-transform: uppercase;
 }
 
 #serverinfotext {
-position: absolute;
-top: 30%;
-font-family: 'Akrobat Light', sans-serif;
-font-style: normal;
-font-weight: 300;
-font-size: 0.625vw;
-line-height: 0.7291666666666666vw;
-color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  color: #d0d0d0;
 }
-
 
 #serverextra {
 position: absolute;
